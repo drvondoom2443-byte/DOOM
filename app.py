@@ -1,3 +1,13 @@
+# --- MONKEY PATCH FOR PILLOW 10+ / MOVIEPY 1.0.3 COMPATIBILITY ---
+import PIL.Image
+if not hasattr(PIL.Image, 'ANTIALIAS'):
+    PIL.Image.ANTIALIAS = PIL.Image.Resampling.LANCZOS
+# -----------------------------------------------------------------
+
+import os
+import tempfile
+import asyncio
+# ... rest of your imports and app.py code below
 import os
 import sys
 import tempfile
